@@ -6,51 +6,9 @@
   font-family: 'Roboto Mono', monospace;
 }
 
-.mainContainer{
-  width: 90%;
-  height: 90%;
-  background-color: white;
-  margin: auto;
-  border-radius: 10px;
-  display: flex;
-}
 
-.userBoxContainer{
-  width: 25%;
-  border: 1px solid black;
-  height: 100%;
-  border-top-left-radius: 10px;
-}
 
-.chatBoxContainer{
-  width: 75%;
-  border: 1px solid black;
-  border-top-right-radius: 10px;
-  display: grid;
-  grid-template-rows: 13% 1fr 18%;
-  
-}
 
-.chatBoxHeader{
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
-  padding-left: 25px;
-  font-weight: 400;
-  font-size: 22px;
-  word-spacing: -6px;
-  background: linear-gradient(45deg, rgb(0,51,155),white, rgb(0,51,155));
-  color: white;
-  
-}
-
-.messageScreen{
-  border: 1px solid black;
-}
-
-.messageInput{
-  border: 1px solid black;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

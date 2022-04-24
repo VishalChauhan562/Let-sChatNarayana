@@ -1,0 +1,53 @@
+.userBoxContainer{
+    min-width: 15rem;
+    width: 25%;
+    border-right: 2px solid rgba(0, 0, 0, 0.171);
+    height: 100%;
+    display: grid;
+    grid-template-rows: 13% 1fr;
+  
+  }
+
+  .userHead{
+    padding-left: 25px;
+    font-weight: 400;
+    font-size: 22px;
+    word-spacing: -6px;
+    display: flex;
+    align-items: center;
+  }
+
+  
+
+.userListContainer{
+    overflow-y: scroll;
+    text-align: center;
+   }
+   
+   .userListContainer::-webkit-scrollbar{
+     width: 8px;
+   }
+   
+   .userListContainer::-webkit-scrollbar-thumb{
+     background-color: rgba(0, 0, 0, 0.315);
+     border-radius: 10px;
+   }
+   
+   .userListContainer ul{
+     list-style: none;
+     box-sizing: border-box;
+     padding-left: 10px;
+   }
+   
+   .userListContainer li{
+     display: flex;
+     font-size: large;
+     align-items: center;
+     margin-top: 15px;
+     cursor: pointer;
+   }
+   
+   .userListContainer li span{
+     margin-left: 10px;
+   }
+   
