@@ -6,7 +6,7 @@ import {v4} from 'uuid'
 import { userActions } from '../../appState/userDataSlice';
 import { FaPlusCircle } from "react-icons/fa";
 
-export const UserBox= () => {
+export const UserBox= ({activeBlock,setActiveBlock}) => {
 
   const dispatch = useDispatch()
   const {logedinUserContent} =  useSelector(state=>state.userData)
@@ -14,14 +14,15 @@ export const UserBox= () => {
 
 
   return (
-    <div className={styles.userBoxContainer}>
+    <div className={`${styles.userBoxContainer} ${!activeBlock ? styles.hide : ""}`}>
       <div className={styles.userHead}><span>Users</span><span onClick={()=>{dispatch(userActions.setModelActive())}} ><FaPlusCircle style={{fontSize:"30px",color:"midnightBlue", cursor:"pointer"}} /></span>  </div>
       <div className={styles.userListContainer}>  
       <ul>
       
       {(logedinUserContent.contacts || []).map((contact)=>{
         return <li key={v4()} onClick={()=>{
-          dispatch(userActions.setActiveContact(contact.contactUserName))
+          dispatch(userActions.setActiveContact(contact.contactUserName));
+          setActiveBlock((prev)=>!prev)
         }} > <FaUserCircle style={{color:"midnightblue",fontSize:"40px"}} /> <span>{contact.contactName}</span>  </li>
       })}
       

@@ -3,8 +3,13 @@
   display: grid;
   grid-template-rows: 13% 1fr 23%;
   height: 100%;
+  position: relative;
 }
 
+
+.iconHide{
+  display: none;
+}
 .chatBoxHeader {
   display: flex;
   justify-content: space-between;
@@ -121,7 +126,12 @@
   background-color: rgb(163, 235, 135);
 }
 
-@media screen and (min-device-width: 700px) and (max-width: 987px) { 
+@media screen and (max-width: 987px) { 
+
+  .chatBoxContainer{
+    width: 100%;
+  }
+
   .inputTitle span{
     display: none;
   }
@@ -129,15 +139,13 @@
   .inputTitle div{
     width: 100%;
   }
-}
-
-@media screen and  (max-width: 700px) { 
-   
-   .inputTitle span{
+  .hide{
     display: none;
   }
-  .inputTitle div{
-    width: 100%;
-  }
 
+  .iconHide{
+    display: initial;
+  }
 }
+
+

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { ChatBox } from "../ChatBox";
 import { UserBox } from "../UserBox";
@@ -6,7 +7,7 @@ import styles from "./appStart.module.css";
 export const AppStarter = () => {
   const modelActive = useSelector((state) => state.userData.modelActive);
 
-  
+  const [activeBlock,setActiveBlock] = useState(true)
 
   
   
@@ -16,8 +17,8 @@ export const AppStarter = () => {
         <UserModelWindow />
       ) : (
         <>
-          <UserBox />
-          <ChatBox />
+          <UserBox activeBlock={activeBlock} setActiveBlock={setActiveBlock} />
+          <ChatBox activeBlock={activeBlock} setActiveBlock={setActiveBlock} />
         </>
       )}
     </div>
