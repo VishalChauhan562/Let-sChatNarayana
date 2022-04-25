@@ -5,11 +5,11 @@ import { ChatScreen } from "./ChatScreen";
 
 
 
-export const ChatBox = ({mediaDisplay,setMediaDispaly}) => {
+export const ChatBox = () => {
   
   
   return (
-    <div style={mediaDisplay.chatBox} className={styles.chatBoxContainer}>
+    <div className={styles.chatBoxContainer}>
       <div className={styles.chatBoxHeader}>
         <span >Chat Messages</span>
       </div>
