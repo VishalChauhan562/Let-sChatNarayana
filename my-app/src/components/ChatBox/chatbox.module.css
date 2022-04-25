@@ -1,117 +1,121 @@
+.chatBoxContainer {
+  width: 75%;
+  display: grid;
+  grid-template-rows: 13% 1fr 23%;
+}
 
-.chatBoxContainer{
-    width: 75%;
-    display: grid;
-    grid-template-rows: 13% 1fr 23%;
-  }
-  
-  .chatBoxHeader{
-    display: flex;
-    align-items: center;
-    padding-left: 25px;
-    font-weight: 400;
-    font-size: 22px;
-    word-spacing: -6px;
-    background: linear-gradient(45deg, rgb(0,51,155),white, rgb(0,51,155));
-    color: white;
-    border-top-right-radius: 10px;
-    
-  }
-  
-  
-  
-  
-  .messageScreen{
-  
-    overflow-y: scroll;
-  }
-  
-  .messageScreen::-webkit-scrollbar{
-    display: none;
-  }
-  
-  .messageReciever{
-    display: flex;
-    border: 1px solid black;
-    align-items: center;
-    padding-left: 5px;
-    column-gap: 10px;
-    padding: 15px;
-  }
-  .messageReciever span{
-    background-color: rgb(68,252,182);
-    padding: 10px;
-    border-radius: 20px;
-    transition: all 0.3s;
-    color:midnightblue;
-    font-weight: 600;
-  }
+.chatBoxHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-weight: 400;
+  font-size: 22px;
+  word-spacing: -6px;
+  background: linear-gradient(45deg, rgb(0, 51, 155), white, rgb(0, 51, 155));
+  color: white;
+  border-top-right-radius: 10px;
+}
 
-  .messageSender{
-    display: flex;
-    flex-direction: row-reverse;
-    border: 1px solid black;
-    align-items: center;
-    padding-left: 5px;
-    column-gap: 10px;
-    padding: 15px;
-  }
-  .messageSender span{
-    background-color: rgb(68,252,182);
-    padding: 10px;
-    border-radius: 20px;
-    transition: all 0.3s;
-    color:midnightblue;
-    font-weight: 600;
-  }
+.chatBoxHeader button{
+  padding: 10px;
+  width: 120px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(0, 17, 255);
+  color: white;
+  font-weight: 600;
+}
 
-  
-  .inputTitle{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    column-gap: 20px;
-    color: rgb(18, 18, 128);
-    font-weight: 600;
-  }
-  .inputTitle div{
-    width: 80%;
-    height: 3px;
-    background-color:rgb(13, 13, 126);
-    box-sizing: border-box;
-  }
-  
-  
-  .inputBlock{
-   
-    height: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .inputBlock input{
+.messageScreen {
+  overflow-y: scroll;
+}
+
+.messageScreen::-webkit-scrollbar {
+  display: none;
+}
+
+.messageReciever {
+  display: flex;
+
+  align-items: center;
+  padding-left: 5px;
+  column-gap: 10px;
+  padding: 15px;
+  transition: all 0.5s ease-out;
+}
+.messageReciever span {
+  background-color: rgb(68, 252, 182);
+  padding: 10px;
+  border-radius: 20px;
+  transition: all 0.3s;
+  color: midnightblue;
+  font-weight: 600;
+}
+
+.messageSender {
+  display: flex;
+  flex-direction: row-reverse;
+
+  align-items: center;
+  padding-left: 5px;
+  column-gap: 10px;
+  padding: 15px;
+  transition: all 0.5s ease-out;
+}
+.messageSender span {
+  background-color: rgb(68, 252, 182);
+  padding: 10px;
+  border-radius: 20px;
+  transition: all 0.3s;
+  color: midnightblue;
+  font-weight: 600;
+}
+
+.inputTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  color: rgb(18, 18, 128);
+  font-weight: 600;
+}
+.inputTitle div {
+  width: 80%;
+  height: 3px;
+  background-color: rgb(13, 13, 126);
+  box-sizing: border-box;
+}
+
+.inputBlock {
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inputBlock input {
   width: 70%;
   height: 50%;
   outline: none;
   border: none;
   font-size: 20px;
-  }
-  
-  .inputBlock button{
-    background-color: white;
-    box-shadow: none;
-    border: 2px solid rgb(13, 13, 126);
-    padding: 5px;
-    width: 100px;
-    height: 40px;
-    border-radius: 20px;
-    color:  rgb(13, 13, 126);
-  }
-  
-  .inputBlock button:hover{
-    background-color: skyblue;
-  }
-  .inputBlock button:active{
-    background-color: rgb(163, 235, 135);
-  }
-  
+}
+
+.inputBlock button {
+  background-color: white;
+  box-shadow: none;
+  border: 2px solid rgb(13, 13, 126);
+  padding: 5px;
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  color: rgb(13, 13, 126);
+}
+
+.inputBlock button:hover {
+  background-color: skyblue;
+}
+.inputBlock button:active {
+  background-color: rgb(163, 235, 135);
+}

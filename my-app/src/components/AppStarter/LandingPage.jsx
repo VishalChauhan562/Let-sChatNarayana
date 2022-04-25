@@ -13,7 +13,7 @@ export const LandingPage = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const {userData, isLogin} =  useSelector((state)=>(state.userData))
+  const {isLogin} =  useSelector((state)=>(state.userData))
 
   const loginHandler = ()=>{
    dispatch(userActions.userExist(userInput))
@@ -23,7 +23,9 @@ export const LandingPage = () => {
 
     if(isLogin){
       dispatch(userActions.updateUserContent(userInput))
-      navigate(`chat/${userInput}`)
+      navigate("/chat")
+    }else{
+      navigate("/")
     }
   
   },[isLogin])

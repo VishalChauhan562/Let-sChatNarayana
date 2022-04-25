@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path={isLogin ? "chat/:userName" : "/"} element={<AppStarter />} />
+      <Route path="/" element={<LandingPage />} />
+        <Route path={isLogin ? "chat" : "/"} element={<AppStarter />} />
         <Route path="*" element={<h1 style={{color:"yellow",width:"fitContent",margin:"auto"}} >You are Log Out or may be not signup so... signup/LogIn First</h1>} ></Route>
       </Routes>
     </div>
@@ -19,3 +19,5 @@ function App() {
 }
 
 export default App;
+
+

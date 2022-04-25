@@ -1,6 +1,6 @@
 import React from "react";
 import { FaPaperPlane } from "react-icons/fa";
-import styles from './chatbox.module.css';
+import styles from "./chatbox.module.css";
 
 export const InputMessage = () => {
   return (
