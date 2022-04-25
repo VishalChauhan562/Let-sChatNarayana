@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import styles from "./chatbox.module.css";
 import {v4} from 'uuid'
+import { useSelector } from "react-redux";
 
 
-export const ChatScreen = ({ activeChat }) => {
+export const ChatScreen = () => {
+
+  const {activeChat} = useSelector(state=>state.userData)
+  const scrollToDownRef = useRef()
+
+  useEffect(() => {
+    scrollToDownRef.current?.scrollIntoView() 
+  }, [activeChat])
+  
+
   return (
     <>
       {" "}
@@ -28,6 +38,7 @@ export const ChatScreen = ({ activeChat }) => {
             );
           }
         })}
+        <div ref={scrollToDownRef} ></div>
       </div>
     </>
   );

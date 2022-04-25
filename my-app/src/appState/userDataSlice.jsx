@@ -1,56 +1,42 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice} from "@reduxjs/toolkit";
 import { v4 } from 'uuid'
 
 
 
-const initialState =[
-    {id:v4(), name:"Vishal", userName:"vishal562", contacts:[{
-        contactName:"Ayush", contactUserName : "ayush562",
-        chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Ayush I am good"}]
-    },{
-        contactName:"Deepak", contactUserName : "deepak562",
-        chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Deepak I am good"}]
-    },{
-        contactName:"Prashant", contactUserName : "prashant562",
-        chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Prashant I am good"}]
-    }]},
-    {id:v4(),name:"Ayush", userName:"ayush562", contacts:[{
-        contactName:"Vishal", contactUserName : "vishal562",
-        chatStream:[{messageReciever:"Hi Ayush, how are you"},{messageSender:"Hi, Vishal I am good"}]
-    },{
-        contactName:"Deepak", contactUserName : "deepak562",
-        chatStream:[{messageReciever:"Hi Ayush, how are you"},{messageSender:"Hi, Deepak I am good"}]
-    },{
-        contactName:"Prashant",contactUserName : "prashant562",
-        chatStream:[{messageReciever:"Hi Ayush, how are you"},{messageSender:"Hi, Prashant I am good"}]
-    }]},
-    {id:v4(),name:"Deepak", userName:"deepak562", contacts:[{
-        contactName:"Ayush" , contactUserName : "ayush562",
-        chatStream:[{messageReciever:"Hi Deepak, how are you"},{messageSender:"Hi, Ayush I am good"}]
-    },{
-        contactName:"Vishal", contactUserName : "vishal562",
-        chatStream:[{messageReciever:"Hi Deepak, how are you"},{messageSender:"Hi, Vishal I am good"}]
-    },{
-        contactName:"Prashant", contactUserName : "prashant562",
-        chatStream:[{messageReciever:"Hi Deepak, how are you"},{messageSender:"Hi, Prashant I am good"}]
-    }]},
-    {id:v4(),name:"Prashant", userName:"prashant562", contacts:[{
-        contactName:"Ayush",  contactUserName : "ayush562",
-        chatStream:[{messageReciever:"Hi Prashant, how are you"},{messageSender:"Hi, Ayush I am good"}]
-    },{
-        contactName:"Deepak", contactUserName : "deepak562",
-        chatStream:[{messageReciever:"Hi Prashant, how are you"},{messageSender:"Hi, Deepak I am good"}]
-    },{
-        contactName:"Vishal", contactUserName : "vishal562",
-        chatStream:[{messageReciever:"Hi Prashant, how are you"},{messageSender:"Hi, Vishal I am good"}]
-    }]},
-    {id:v4(),name:"Abhinav", userName:"abhi117", contacts:[]},
-    {id:v4(),name:"Aakash", userName:"aakash777", contacts:[]},
-    {id:v4(),name:"Priya", userName:"priya111", contacts:[]},
-    {id:v4(),name:"Vishakha", userName:"v245", contacts:[]}
-]
+const users = [{
+    contactName:"Jon", contactUserName : "jon562",
+    chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Jon I am good"}]
+},{
+    contactName:"Krishna", contactUserName : "krishna562",
+    chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Krishan I am good"}]
+},{
+    contactName:"Abdul", contactUserName : "abdul562",
+    chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Abdul I am good"}]
+},{
+    contactName:"Swami", contactUserName : "swami562",
+    chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Swami I am good"}]
+},{
+    contactName:"Albert", contactUserName : "albert562",
+    chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Albert I am good"}]
+},{
+    contactName:"Faisal", contactUserName : "fasal562",
+    chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Faisal I am good"}]
+},{
+    contactName:"Sachin", contactUserName : "sachin562",
+    chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Sachin I am good"}]
+}]
 
 
+const logedInUser = {id:v4(), name:"Vishal", userName:"vishal562", contacts:[{
+    contactName:"Ayush", contactUserName : "ayush562",
+    chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Ayush I am good"},{messageReciever:"Can you pass me the books?"},{messageReciever:"It's urgent"},{messageReciever:"living for Jaipur"},{messageReciever:"Will come after 5 days"},{messageSender:"Sure coming to your place in no time."}]
+},{
+    contactName:"Deepak", contactUserName : "deepak562",
+    chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Deepak I am good"}]
+},{
+    contactName:"Prashant", contactUserName : "prashant562",
+    chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Prashant I am good"}]
+}]}
 // function to add new user to the initial state--> addUser
 // function to check if user exist--> UserExist
 
@@ -58,31 +44,37 @@ const initialState =[
 
 const userDataSlice = createSlice({
     name:"userData",
-    initialState:{userData:initialState,isLogin:false,logedinUserContent:{}},
-    reducers:{
-        
-        addUser(state,action){
-            state.userData.push(action.payload)
+    initialState:{users:users,logedinUserContent:logedInUser,activeContact:"",activeChat:[],modelActive:false},
+    reducers:{     
+       
+
+        setActiveContact(state,action){
+            state.activeContact = action.payload
+            state.logedinUserContent.contacts.forEach((contact)=>{
+                if(contact.contactUserName===action.payload){
+                  state.activeChat = contact.chatStream
+                }
+              })
         },
 
-        userExist(state,action){
-            let check = false;
-            state.userData.forEach((user)=>{
-                if(user.userName===action.payload){
-                    check=true
+        sendMessage(state,action){
+            state.logedinUserContent.contacts.forEach((contact)=>{
+                if(contact.contactUserName===state.activeContact){
+                    contact.chatStream.push({messageSender:action.payload})
                 }
             })
-            state.isLogin = check
+
+            state.activeChat =state.logedinUserContent.contacts.filter((contact)=>contact.contactUserName===state.activeContact)[0].chatStream
         },
 
-        updateUserContent(state,action){
-            state.logedinUserContent =state.userData.filter((user)=>(user.userName===action.payload))[0]
+        addContact(state,action){
+            state.logedinUserContent.contacts.push(action.payload)
+            state.users = state.users.filter((contact)=>contact.contactUserName!==action.payload.contactUserName)
         },
 
-        logOutUser(state,action){
-            state.isLogin = false
-        },
-        
+        setModelActive(state){
+            state.modelActive = !state.modelActive
+        }
 
     }
 })

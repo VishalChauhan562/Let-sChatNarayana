@@ -1,0 +1,30 @@
+.ModelContainer{
+    min-width: 330px;
+    width: 30%;
+    height: 90%;
+    background-color: midnightblue;
+    margin: auto;
+    border-radius: 20px;
+    color:rgb(255, 142, 134);
+    font-size : 20px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+
+.ModelContainer::-webkit-scrollbar{
+    width: 8px;
+  }
+  
+  .ModelContainer::-webkit-scrollbar-thumb{
+    background-color:rgb(255, 142, 134) ;
+    border-radius: 20px;
+    
+  }
+
+  .userScreen h4{
+      border: 2px solid rgb(255, 142, 134);
+      border-radius: 20px;
+      padding: 5px;
+  }

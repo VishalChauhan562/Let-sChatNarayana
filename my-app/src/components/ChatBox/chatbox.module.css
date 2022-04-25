@@ -2,6 +2,7 @@
   width: 75%;
   display: grid;
   grid-template-rows: 13% 1fr 23%;
+  height: 100%;
 }
 
 .chatBoxHeader {
@@ -118,4 +119,25 @@
 }
 .inputBlock button:active {
   background-color: rgb(163, 235, 135);
+}
+
+@media screen and (min-device-width: 700px) and (max-width: 987px) { 
+  .inputTitle span{
+    display: none;
+  }
+
+  .inputTitle div{
+    width: 100%;
+  }
+}
+
+@media screen and  (max-width: 700px) { 
+   
+   .inputTitle span{
+    display: none;
+  }
+  .chatBoxContainer{
+    width: 100%;
+  }
+
 }

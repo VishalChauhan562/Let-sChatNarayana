@@ -15,6 +15,10 @@
     word-spacing: -6px;
     display: flex;
     align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 25px;
+
   }
 
   
@@ -51,3 +55,10 @@
      margin-left: 10px;
    }
    
+
+  
+  @media screen and  (max-width: 700px) { 
+    .userBoxContainer{
+      width: 100%;
+    }
+  }
