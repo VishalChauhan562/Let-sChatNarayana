@@ -12,7 +12,7 @@ export const fetchAppData = () => {
   return async (dispatch) => { 
 
     const fetchData = async () => {
-      const response = await fetch("http://localhost:5000/tasks");
+      const response = await fetch("https://chat-app562.herokuapp.com/tasks");
   
       if (!response.ok) {
         throw new Error("Could not fetch data");
