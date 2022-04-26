@@ -4,6 +4,9 @@ import styles from './modalWindow.module.css'
 import {v4} from 'uuid'
 import { userActions } from '../../appState/userDataSlice'
 
+// function need to be dispatched to add new contact to the user list is ---> userActions.addContact(contact)
+
+// function which need to be dispatched make model disappear after adding the user is  -----> userActions.setModelActive()
 
 export const UserModelWindow = () => {
   const {users} = useSelector((state)=>state.userData)

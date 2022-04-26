@@ -4,8 +4,16 @@ import { useDispatch } from "react-redux";
 import { userActions } from "../../appState/userDataSlice";
 import styles from "./chatbox.module.css";
 
-export const InputMessage = () => {
+// function to dispatch action to add new message send by user to a particular contact
+//  is---->   userActions.sendMessage(message)
 
+
+
+
+// this block handeling the chat message input by the user 
+export const InputMessageBlock = () => {
+
+  // sate to handle the onChange event for input message box
   const [message,setMessage] = useState("")
   const dispatch = useDispatch()
 
@@ -14,7 +22,7 @@ export const InputMessage = () => {
   }
 
   const sendMessageHandler = ()=>{
-    dispatch(userActions.sendMessage(message))
+    if(message!=="") dispatch(userActions.sendMessage(message))
     setMessage("")
   }
 
