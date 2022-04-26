@@ -1,6 +1,6 @@
 # Let-sChatNarayana
 
-It's a singler user chat app<br/>
+It's a single user chat app<br/>
 <a href="https://letschatnarayana.netlify.app/" target="_blank">Click here for Live demo</a>
 
 ## Tech Stack used:
