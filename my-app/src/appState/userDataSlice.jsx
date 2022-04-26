@@ -1,7 +1,7 @@
 import { createSlice} from "@reduxjs/toolkit";
+import {v4} from "uuid"
 
-
-// useful Data model, in case backend fail 
+//useful Data model, in case backend fail 
 
 // const users = [{
 //     contactName:"Jon", contactUserName : "jon562",
@@ -27,24 +27,24 @@ import { createSlice} from "@reduxjs/toolkit";
 // }]
 
 
-// const logedInUser = {id:v4(), name:"Vishal", userName:"vishal562", contacts:[{
-//     contactName:"Ayush", contactUserName : "ayush562",
-//     chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Ayush I am good"},{messageReciever:"Can you pass me the books?"},{messageReciever:"It's urgent"},{messageReciever:"living for Jaipur"},{messageReciever:"Will come after 5 days"},{messageSender:"Sure coming to your place in no time."}]
-// },{
-//     contactName:"Deepak", contactUserName : "deepak562",
-//     chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Deepak I am good"}]
-// },{
-//     contactName:"Prashant", contactUserName : "prashant562",
-//     chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Prashant I am good"}]
-// }]}
+const logedInUser = {id:v4(), name:"Vishal", userName:"vishal562", contacts:[{
+    contactName:"Ayush", contactUserName : "ayush562",
+    chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Ayush I am good"},{messageReciever:"Can you pass me the books?"},{messageReciever:"It's urgent"},{messageReciever:"living for Jaipur"},{messageReciever:"Will come after 5 days"},{messageSender:"Sure coming to your place in no time."}]
+},{
+    contactName:"Deepak", contactUserName : "deepak562",
+    chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Deepak I am good"}]
+},{
+    contactName:"Prashant", contactUserName : "prashant562",
+    chatStream:[{messageReciever:"Hi Vishal, how are you"},{messageSender:"Hi, Prashant I am good"}]
+}]}
 // function to add new user to the initial state--> addUser
 // function to check if user exist--> UserExist
-// const initiActiveChat = logedInUser.contacts[0].chatStream
+const initiActiveChat = logedInUser.contacts[0].chatStream
 
 
 const userDataSlice = createSlice({
     name:"userData",
-    initialState:{users:[],logedinUserContent:{},activeContact:"",activeChat:[],modelActive:false},
+    initialState:{users:[],logedinUserContent:{},activeContact:"ayush562",activeChat:initiActiveChat,modelActive:false},
     reducers:{     
         
         // function to fetch API and update initial state of the app
